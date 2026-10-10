@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Patient Diary tokens, named the way shadcn/ui components expect them */
+:root {
+  --background: #f7f6fb;
+  --foreground: #16121f;
+  --card: #ffffff;
+  --card-foreground: #16121f;
+  --primary: #6b2bd9;
+  --primary-foreground: #ffffff;
+  --muted: #f0eef6;
+  --muted-foreground: #6b6680;
+  --border: #e4e1ec;
+  --accent-soft: #eee6fe;
+  --band: #efebf9;
+  --deep: #1f1238;
+  --deep-foreground: #f6f2ff;
+  --ok: #1f8a5b;
+  --warn: #b7791f;
+  --danger: #d6455d;
+  --gradient: url('/bg-gradient.svg');
+}
+
+.dark {
+  --background: #0f0d16;
+  --foreground: #efecf7;
+  --card: #18151f;
+  --card-foreground: #efecf7;
+  --primary: #a98bfa;
+  --primary-foreground: #170b36;
+  --muted: #221e2c;
+  --muted-foreground: #9f99b3;
+  --border: #2b2637;
+  --accent-soft: #2a1f4e;
+  --band: #1b1726;
+  --deep: #a98bfa;
+  --deep-foreground: #140a2e;
+  --ok: #5fd39c;
+  --warn: #f0c05a;
+  --danger: #f28a9b;
+  --gradient: url('/bg-gradient-dark.svg');
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-band: var(--band);
+  --color-deep: var(--deep);
+  --color-deep-foreground: var(--deep-foreground);
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    font-feature-settings: 'cv11', 'ss01';
+    letter-spacing: -0.005em;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+  }
+}
